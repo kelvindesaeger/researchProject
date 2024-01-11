@@ -1,0 +1,110 @@
+<main class="flex-1">
+    <section class="w-full h-[500px] bg-center bg-cover">
+        <div class="h-full bg-black bg-opacity-50 flex flex-col items-center justify-center text-center p-6">
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-white">Satisfy Your Cravings</h1>
+            <p class="mt-4 text-2xl md:text-3xl lg:text-4xl text-white">The Best Burgers Delivered to Your Doorstep</p>
+            <a class="mt-8 inline-flex items-center justify-center h-12 px-6 font-medium text-white bg-green-600 hover:bg-green-700 rounded-md"
+                href="#">
+                Order Now
+            </a>
+        </div>
+    </section>
+    <section id="about" class="w-full py-12 px-6 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center text-gray-800">Our Story</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-center text-gray-600">
+            Delicious Burgers was born out of a love for high-quality, flavorful burgers. Our founders, two food
+            enthusiasts, started the company in their small kitchen. Today, we are proud to serve customers nationwide,
+            delivering the same passion and quality that started it all.
+        </p>
+    </section>
+    <section id="menu" class="w-full py-12 px-6 bg-white">
+        <h2 class="text-3xl font-bold text-center text-gray-800">Our Top Products</h2>
+        <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+
+            <div *ngFor="let burger of burgers" class="flex flex-col items-center text-center">
+                <img src='../../../assets/products/{{burger.img}}' width="200" height="200" alt="Burger"
+                    class="w-48 h-48 object-cover rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
+                <h3 class="mt-4 text-xl font-medium text-gray-800">{{ burger.name }}</h3>
+                <p class="mt-2 text-gray-600">
+                    {{ burger.description }}
+                </p>
+                <button
+                    class="mt-4 inline-flex items-center justify-center h-10 px-4 font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                    Add to Cart
+                </button>
+            </div>
+
+        </div>
+    </section>
+    <section id="offers" class="w-full py-12 px-6 bg-gray-100">
+        <h2 class="text-3xl font-bold text-center text-gray-800">Special Offers</h2>
+        <p class="mt-4 max-w-2xl mx-auto text-center text-gray-600">
+            We have ongoing promotions and special offers. Check them out and save on your next order!
+        </p>
+        <div class="mt-8 flex flex-col items-center">
+            <div class="text-4xl font-bold text-red-600">20% Off on Combo Meals</div>
+            <div class="mt-2 text-lg text-gray-600">
+                Hurry up! Offer ends in <span class="font-bold">00:59:25</span>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials" class="w-full py-12 px-6 bg-white">
+        <h2 class="text-3xl font-bold text-center text-gray-800">What Our Customers Say</h2>
+        <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="flex flex-col items-center text-center">
+                <img src="../../../assets/products/cola.jpg" width="100" height="100" alt="Customer"
+                    class="w-24 h-24 object-cover rounded-full" style="aspect-ratio: 100 / 100; object-fit: cover;" />
+                <h3 class="mt-4 text-xl font-medium text-gray-800">John Doe</h3>
+                <p class="mt-2 text-gray-600">
+                    "The burgers are absolutely delicious! I can't get enough of them."
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="how-it-works" class="w-full py-12 px-6 bg-gray-100 ">
+        <h2 class="text-3xl font-bold text-center text-gray-800 ">How It Works</h2>
+        <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="flex flex-col items-center text-center">
+                <div class="text-5xl font-bold text-gray-800 ">1</div>
+                <h3 class="mt-4 text-xl font-medium text-gray-800">Choose Your Burger</h3>
+                <p class="mt-2 text-gray-600">Browse our menu and choose your favorite burger.</p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="w-full py-12 px-6 bg-white">
+        <h2 class="text-3xl font-bold text-center text-gray-800">Contact Us</h2>
+        <div class="mt-8 max-w-md mx-auto grid gap-6">
+            <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="mr-3 h-6 w-6">
+                    <path
+                        d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                    </path>
+                </svg>
+                <span>(123) 456-7890</span>
+            </div>
+            <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="mr-3 h-6 w-6">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>infoAdeliciousburgers.com</span>
+            </div>
+            <div class="flex items-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="mr-3 h-6 w-6">
+                    <line x1="2" x2="5" y1="12" y2="12"></line>
+                    <line x1="19" x2="22" y1="12" y2="12"></line>
+                    <line x1="12" x2="12" y1="2" y2="5"></line>
+                    <line x1="12" x2="12" y1="19" y2="22"></line>
+                    <circle cx="12" cy="12" r="7"></circle>
+                </svg>
+                <span>123 Main St, Anytown, USA</span>
+            </div>
+        </div>
+    </section>
+</main>

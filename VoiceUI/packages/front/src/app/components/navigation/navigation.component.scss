@@ -1,0 +1,37 @@
+.header{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+    background-color: red;
+}
+
+.title{
+    font-weight: bold;
+    font-size: 3rem;
+    color: white;
+}
+
+.navigation{
+    display: flex;
+    gap: 1rem;
+}
+
+.navigation__item{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    &:hover{
+        color: black;
+    }
+    &--active{
+        color: yellowgreen;
+    }
+}
