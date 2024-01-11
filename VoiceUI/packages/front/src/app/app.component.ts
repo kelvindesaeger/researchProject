@@ -16,23 +16,23 @@ import alanBtn from "@alan-ai/alan-sdk-web";
 export class AppComponent {
   title = 'front';
 
-  alanBtnInstance;
+  // alanBtnInstance;
 
 
   constructor(private router: Router){
-    this.alanBtnInstance = alanBtn({
-      key: '',
-      onCommand: (commandData) => {
-        //@ts-ignore
-        if (commandData.command === 'openURL') {
-          // Call the client code that will react to the received command
-          // @ts-ignore
-          this.alanBtnInstance.playText("Opening " + commandData.url);
-          console.info('openURL');
-          //@ts-ignore
-          this.router.navigate([commandData.url]);
-        }
-      },
-    });
+    // this.alanBtnInstance = alanBtn({
+    //   key: 'd87556a8fa3e2338fdd0dc/stage',
+    //   onCommand: (commandData) => {
+    //     //@ts-ignore
+    //     if (commandData.command === 'openURL') {
+    //       // Call the client code that will react to the received command
+    //       // @ts-ignore
+    //       this.alanBtnInstance.playText("Opening " + commandData.url);
+    //       console.info('openURL');
+    //       //@ts-ignore
+    //       this.router.navigate([commandData.url]);
+    //     }
+    //   },
+    // });
   }
 }
