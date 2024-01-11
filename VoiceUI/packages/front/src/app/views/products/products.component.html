@@ -1,16 +1,17 @@
-<section id="burgers" class="w-full py-12 px-6 bg-white">
+<section id="burgers" class="w-full px-6 py-12 bg-white">
     <h2 class="text-3xl font-bold text-center text-gray-800">Our Burgers</h2>
-    <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
         <div *ngFor="let burger of burgers" class="flex flex-col items-center text-center">
             <img src="../../../assets/products/{{ burger.img }}" width="200" height="200" alt="Burger"
-                class="w-48 h-48 object-cover rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             <h3 class="mt-4 text-xl font-medium text-gray-800">{{ burger.name }}</h3>
             <p class="mt-2 text-gray-600">
                 {{ burger.description }}
             </p>
             <button
-                class="mt-4 inline-flex items-center justify-center h-10 px-4 font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                class="inline-flex items-center justify-center h-10 px-4 mt-4 font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+                (click)="addToCart(burger)">
                 Add to Cart €{{ burger.price }}
             </button>
         </div>
@@ -18,19 +19,20 @@
     </div>
 </section>
 
-<section id="sides" class="w-full py-12 px-6 bg-gray-200">
+<section id="sides" class="w-full px-6 py-12 bg-gray-200">
     <h2 class="text-3xl font-bold text-center text-gray-800">Our Burgers</h2>
-    <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
         <div *ngFor="let side of sides" class="flex flex-col items-center text-center">
             <img src="../../../assets/products/{{ side.img }}" width="200" height="200" alt="Burger"
-                class="w-48 h-48 object-cover rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             <h3 class="mt-4 text-xl font-medium text-gray-800">{{ side.name }}</h3>
             <p class="mt-2 text-gray-600">
                 {{ side.description }}
             </p>
             <button
-                class="mt-4 inline-flex items-center justify-center h-10 px-4 font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                class="inline-flex items-center justify-center h-10 px-4 mt-4 font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+                (click)="addToCart(side)">
                 Add to Cart €{{ side.price }}
             </button>
         </div>
@@ -38,19 +40,20 @@
     </div>
 </section>
 
-<section id="drinks" class="w-full py-12 px-6 bg-white">
+<section id="drinks" class="w-full px-6 py-12 bg-white">
     <h2 class="text-3xl font-bold text-center text-gray-800">Our Drinks</h2>
-    <div class="mt-8 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+    <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
         <div *ngFor="let drink of drinks" class="flex flex-col items-center text-center">
             <img src="../../../assets/products/{{ drink.img }}" width="200" height="200" alt="Burger"
-                class="w-48 h-48 object-cover rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             <h3 class="mt-4 text-xl font-medium text-gray-800">{{ drink.name }}</h3>
             <p class="mt-2 text-gray-600">
                 {{ drink.description }}
             </p>
             <button
-                class="mt-4 inline-flex items-center justify-center h-10 px-4 font-medium text-white bg-green-600 hover:bg-green-700 rounded-md">
+                class="inline-flex items-center justify-center h-10 px-4 mt-4 font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+                (click)="addToCart(drink)">
                 Add to Cart €{{ drink.price }}
             </button>
         </div>
