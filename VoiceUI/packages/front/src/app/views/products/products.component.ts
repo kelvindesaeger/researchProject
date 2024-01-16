@@ -28,15 +28,15 @@ export class ProductsComponent {
   ];
   
   sides = [
-    { name: 'French Fries', description: 'Crispy golden fries seasoned to perfection.', img: 'fries.jpg', price: 2.99 },
-    { name: 'Onion Rings', description: 'Crunchy battered onion rings with a savory flavor.', img: 'onionRings.jpg', price: 3.49 }
+    {id: "6", name: 'French Fries', description: 'Crispy golden fries seasoned to perfection.', img: 'fries.jpg', price: 2.99 },
+    {id: "7", name: 'Onion Rings', description: 'Crunchy battered onion rings with a savory flavor.', img: 'onionRings.jpg', price: 3.49 }
   ];
   
 
   drinks = [
-    { name: 'Cola', description: 'Classic cola flavor with a hint of vanilla.', img: 'cola.jpg', price: 2.49 },
-    { name: 'Fanta', description: 'Bright and bubbly orange soda.', img: 'fanta.png', price: 2.49 },
-    { name: 'Sprite', description: 'Refreshing lemon-lime soda.', img: 'sprite.png', price: 2.49 }
+    {id: "8", name: 'Cola', description: 'Classic cola flavor with a hint of vanilla.', img: 'cola.jpg', price: 2.49 },
+    {id: "9", name: 'Fanta', description: 'Bright and bubbly orange soda.', img: 'fanta.png', price: 2.49 },
+    {id: "10", name: 'Sprite', description: 'Refreshing lemon-lime soda.', img: 'sprite.png', price: 2.49 }
   ];
   
 }
