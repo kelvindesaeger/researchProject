@@ -1,0 +1,15 @@
+<div>
+    <h2>Your Shopping Cart</h2>
+    <ul>
+        <li *ngFor="let item of cart" class="flex items-center">
+            <img src="../../../assets/products/{{item.img}}" alt="" width="200" height="200" alt="Burger"
+                class="object-cover w-24 h-24 rounded-md" style="aspect-ratio: 100 / 100; object-fit: cover;">
+            {{ item.name }} - ${{ item.price }}
+        </li>
+    </ul>
+    <!-- <p>Total: ${{ getTotal() }}</p> -->
+
+    <button (click)="clearCart()" class="bg-red-500 rounded-sm w-15 h-7">
+        Delete
+    </button>
+</div>
