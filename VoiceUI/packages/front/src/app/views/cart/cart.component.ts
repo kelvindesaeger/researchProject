@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product.interface';
 import { CartService } from '../../composables/cart.service';
 import { NgFor } from '@angular/common';
+import { AlanService } from '../../composables/alan.service';
 
 @Component({
   selector: 'app-cart',
@@ -14,10 +15,18 @@ export class CartComponent implements OnInit {
   cart: Product[] = [];
   total = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private alanService: AlanService) {}
 
   ngOnInit(): void {
+    // fill cart
     this.cart = this.cartService.getCart();
+
+    // listen to alan commands
+    this.alanService.getCommandObservable().subscribe(commandData => {
+      if (commandData.command === 'clearCart') {
+        this.clearCart();
+      }
+    });
   }
 
   clearCart(): void {

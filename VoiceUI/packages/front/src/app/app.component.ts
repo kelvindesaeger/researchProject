@@ -6,6 +6,7 @@ import { FooterComponent as Footer } from './components/footer/footer.component'
 import alanBtn from "@alan-ai/alan-sdk-web";
 import { Product } from './interfaces/product.interface';
 import { CartService } from './composables/cart.service';
+import { AlanService } from './composables/alan.service';
 
 
 @Component({
@@ -18,44 +19,18 @@ import { CartService } from './composables/cart.service';
 export class AppComponent {
   title = 'front';
 
-  alanBtnInstance; 
+  constructor(private router: Router, private cartService: CartService, private alanService: AlanService){ }
 
-  constructor(private router: Router, private cartService: CartService){
-    this.alanBtnInstance = alanBtn({
-      key: '',
-      onCommand: (commandData) => {
-        //@ts-ignore
-        if (commandData.command === 'openURL') {
-          // Call the client code that will react to the received command
-          // @ts-ignore
-          this.alanBtnInstance.playText("Opening " + commandData.url);
-          console.info('openURL');
-          //@ts-ignore
-          this.router.navigate([commandData.url]);
-        }
-        //@ts-ignore
-        if (commandData.command === 'addProduct') {
-          // Call the client code that will react to the received command
-          //@ts-ignore
-          console.log(commandData.product);
-          //@ts-ignore
-          console.log(commandData.quantity);
-          // @ts-ignore
-          this.alanBtnInstance.playText("Adding " + commandData.quantity + " " + commandData.product.name + " to cart");
-
-          //TODO: error: this doesn't work for some reason
-
-          //@ts-ignore
-          for (let i = 0; i <= commandData.quantity; i++) {
-            //@ts-ignore
-            this.addToCart(commandData.product);
-            //@ts-ignore
-            console.log("added " + commandData.product.name + " to cart");
-          }
-
-          console.info('addProduct');
-        }
-      },
+  ngOnInit(): void {
+    this.alanService.getCommandObservable().subscribe(commandData => {
+      // Handle the command data in this component or service
+      console.log('Received command:', commandData);
+      if (commandData.command === 'openURL') {
+        // Handle the command, e.g., navigate to a URL
+        console.info('openURL', commandData.url);
+        // You can emit an event or perform an action here
+        this.router.navigate([commandData.url]);
+      }
     });
   }
 
