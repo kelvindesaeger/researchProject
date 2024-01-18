@@ -22,5 +22,17 @@ export class CartService {
     localStorage.removeItem(this.cartKey);
   }
 
+  removeFromCart(product: Product): void {
+    let cart = this.getCart() || []; // Handle case where getCart returns null
+    console.log('cart', cart);
+    console.log('product', product);
+    const newCart = cart.filter((item) => item.name !== product.name);
+  
+    // Ensure immutability, create a new array only if the cart changes
+    if (newCart.length !== cart.length) {
+      localStorage.setItem(this.cartKey, JSON.stringify(newCart));
+    }
+  }
+
   // Add more methods for removing items, calculating total, clearing cart, etc.
 }

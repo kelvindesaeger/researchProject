@@ -11,7 +11,7 @@ export class AlanService {
 
   constructor() {
     this.alanBtnInstance = alanBtn({
-      key: 'd87556a8fdabd79bc686f506c0d4402c2e956eca572e1d8b807a3e2338fdd0dc/stage', 
+      key: '', 
       onCommand: (commandData) => {
         this.handleCommand(commandData);
       },

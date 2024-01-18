@@ -26,11 +26,20 @@ export class CartComponent implements OnInit {
       if (commandData.command === 'clearCart') {
         this.clearCart();
       }
+      if (commandData.command === 'removeFromCart') {
+        console.log('commandData', commandData.product);
+        this.removeFromCart(commandData.product);
+      }
     });
   }
 
   clearCart(): void {
     this.cartService.clearCart();
     this.cart = [];
+  }
+
+  removeFromCart(product: Product): void {
+    this.cartService.removeFromCart(product);
+    this.cart = this.cartService.getCart();
   }
 }

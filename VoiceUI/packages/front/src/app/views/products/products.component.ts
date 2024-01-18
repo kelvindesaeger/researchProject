@@ -31,7 +31,8 @@ export class ProductsComponent {
       console.log('Received command:', commandData);
       if (commandData.command === 'addProduct') {
         console.log('Adding product:', commandData.product);
-        this.addToCart(commandData.product);
+        console.log('Quantity:', commandData.quantity);
+        this.addToCart(commandData.product, commandData.quantity);
       }
     });
   }
@@ -49,9 +50,12 @@ export class ProductsComponent {
     console.log(this.burgers);
   }
 
-  addToCart(product: ProductInterface): void {
-    console.log('Adding to cart:', product);
-    this.cartService.addToCart(product);
+  addToCart(product: ProductInterface, quantity: number): void {
+    // Add the product to the cart
+    for (let i = 0; i < quantity; i++) {
+      console.log('Adding to cart:', product.name);
+      this.cartService.addToCart(product);
+    }
   }
   
 }
