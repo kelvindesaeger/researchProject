@@ -14,6 +14,7 @@ corpus(
 intent(
     "What burgers do you have?",
     p => {
+        p.play({command: "scrollToSection", section: "burgers"}, opts({force: true}));
         p.play("Hey there! 🍔 If you're wondering about our burgers, let me tell you, we've got some mouthwatering choices. How about trying our classic Bacon Burger, or maybe the cheesy goodness of our Cheeseburger Deluxe? Oh, and if you're into mushrooms, our Mushroom Swiss Burger is a must-try. Feeling adventurous? Give our Spicy Jalapeño Burger a shot! And for all the BBQ lovers, don't miss out on our BBQ Ranch Burger.");
     }
 );
@@ -21,6 +22,7 @@ intent(
 intent(
     "What drinks do you offer?",
     p => {
+        p.play({command: "scrollToSection", section: "drinks"}, opts({force: true}));
         p.play("For drinks 🥤, we've got a variety to keep you refreshed. Fancy some lemony goodness? Our Classic Lemonade's got you covered. Or perhaps a cool Iced Tea is more your style? And for all you mango fans, our Mango Smoothie is a tropical treat. Plus, we've got the classics: Cola, Fanta, and Sprite, always a hit!");
     }
 );
@@ -28,6 +30,7 @@ intent(
 intent(
     "What sides do you have?",
     p => {
+        p.play({command: "scrollToSection", section: "sides"}, opts({force: true}));
         p.play("Lastly, sides 🍟. Because what's a burger without some tasty sides, right? Our French Fries are crispy perfection, and our Onion Rings? Let's just say they're crunch-tastic!");
     }
 );
@@ -64,6 +67,21 @@ intent(
        
         console.log(product);
         p.play({command: "addProduct", product: product, quantity: quantity}, opts({force:true}));
+        console.log("test");
+        
+        p.play("Adding "+productName+" to shoppingcart");
+    }
+);
+
+intent(
+    "(Add) $(p:websiteProducts)",
+    p => {
+        const productName = p.websiteProducts.value.toLowerCase();
+        const product = PRODUCTS.find(product => product.name.toLowerCase() === productName);
+
+       
+        console.log(product);
+        p.play({command: "addProduct", product: product, quantity: 1}, opts({force:true}));
         console.log("test");
         
         p.play("Adding "+productName+" to shoppingcart");
