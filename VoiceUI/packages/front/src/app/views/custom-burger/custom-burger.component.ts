@@ -74,4 +74,8 @@ export class CustomBurgerComponent {
       this.router.navigate(['/products']);
     }
 
+    isChecked(topping: string): boolean {
+      // Add your logic to determine whether the checkbox should be checked
+      return this.customBurger.toppings.includes(topping);
+    }  
 }

@@ -26,26 +26,26 @@
                       'py-12': customBurger.bun}">
     <h1 class="text-3xl font-bold text-center text-gray-800">Choose a protein</h1>
     <form #radioForm="ngForm" class="flex justify-between">
-        <label>
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.protein === 'beef'}">
             <input class="hidden" type="radio" name="protein" value="beef" [(ngModel)]="customBurger.protein" />
             <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
                 class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Beef
         </label>
-        <label>
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.protein === 'pork'}">
             <input class="hidden" type="radio" name="protein" value="pork" [(ngModel)]="customBurger.protein" />
             <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
                 class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Pork
         </label>
-        <label>
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.protein === 'chicken'}">
             <input class="hidden" type="radio" name="protein" value="chicken" [(ngModel)]="customBurger.protein" />
             <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
                 class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Chicken
         </label>
-        <label>
-            <input class="hidden" type="radio" name="protein" value="Tofu" [(ngModel)]="customBurger.protein" />
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.protein === 'tofu'}">
+            <input class="hidden" type="radio" name="protein" value="tofu" [(ngModel)]="customBurger.protein" />
             <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
                 class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Tofu
@@ -57,7 +57,8 @@
                       'py-12': customBurger.protein}">
     <h1 class="text-3xl font-bold text-center text-gray-800">Choose toppings</h1>
     <form #checkboxForm="ngForm" class="flex justify-between">
-        <label *ngFor="let topping of availableToppings">
+        <label *ngFor="let topping of availableToppings" class="border-2 rounded-lg p-2"
+            [ngClass]="{'border-red-700': isChecked(topping)}">
             <input class="hidden" type="checkbox" name="{{topping}}" [value]="topping"
                 (change)="toggleTopping($event, topping)" />
             <img src="../../../assets/products/burger.jpg" width="100" height="100" alt="Burger"
@@ -70,17 +71,23 @@
 <section id="sides" class="w-full px-6 py-12 bg-gray-200 overflow-hidden" [ngClass]="{'h-0': !customBurger.toppings.length, 'h-full': customBurger.toppings.length,
                       'py-12': customBurger.toppings.length}">
     <h1 class="text-3xl font-bold text-center text-gray-800">Choose a sause</h1>
-    <form #radioForm="ngForm">
-        <label>
-            <input type="radio" name="sause" value="BBQ" [(ngModel)]="customBurger.sause" />
+    <form #radioForm="ngForm" class="flex justify-between">
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.sause === 'BBQ'}">
+            <input class="hidden" type="radio" name="sause" value="BBQ" [(ngModel)]="customBurger.sause" />
+            <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             BBQ
         </label>
-        <label>
-            <input type="radio" name="sause" value="Mayonnaise" [(ngModel)]="customBurger.sause" />
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.sause === 'Mayonnaise'}">
+            <input class="hidden" type="radio" name="sause" value="Mayonnaise" [(ngModel)]="customBurger.sause" />
+            <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Mayonnaise
         </label>
-        <label>
-            <input type="radio" name="sause" value="Cocktail" [(ngModel)]="customBurger.sause" />
+        <label class="border-2 rounded-lg p-2" [ngClass]="{'border-red-700': customBurger.sause === 'Cocktail'}">
+            <input class="hidden" type="radio" name="sause" value="Cocktail" [(ngModel)]="customBurger.sause" />
+            <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
             Cocktail
         </label>
     </form>
