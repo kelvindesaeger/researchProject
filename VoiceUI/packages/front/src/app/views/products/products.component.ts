@@ -5,6 +5,7 @@ import { CartService } from '../../composables/cart.service';
 import { ProductsService } from '../../graphql/products.service';
 import { AlanService } from '../../composables/alan.service';
 import { ViewportScroller } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -24,7 +25,8 @@ export class ProductsComponent {
     private cartService: CartService,
     private productsService: ProductsService,
     private alanService: AlanService,
-    private scroller: ViewportScroller
+    private scroller: ViewportScroller,
+    private router: Router
     ) { }
 
   async ngOnInit(): Promise<void> {
@@ -75,5 +77,11 @@ export class ProductsComponent {
       this.cartService.addToCart(product);
     }
   }
+
+  makeCustomBurger(): void {
+    console.log('Routing to custom burger page');
+    this.router.navigate(['/customBurger']);
+  }
+
   
 }

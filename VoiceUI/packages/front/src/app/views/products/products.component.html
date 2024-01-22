@@ -2,6 +2,20 @@
     <h2 class="text-3xl font-bold text-center text-gray-800">Our Burgers</h2>
     <div class="grid grid-cols-1 gap-8 mt-8 sm:grid-cols-2 lg:grid-cols-3">
 
+        <div class="flex flex-col items-center text-center">
+            <img src="../../../assets/products/burger.jpg" width="200" height="200" alt="Burger"
+                class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
+            <h3 class="mt-4 text-xl font-medium text-gray-800">Custom Burger</h3>
+            <p class="mt-2 text-gray-600">
+                Make your own delicious burger!
+            </p>
+            <button
+                class="inline-flex items-center justify-center h-10 px-4 mt-4 font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+                (click)="makeCustomBurger()">
+                Add to Cart €10 - €15
+            </button>
+        </div>
+
         <div *ngFor="let burger of burgers" class="flex flex-col items-center text-center">
             <img src="../../../assets/products/{{ burger.img }}" width="200" height="200" alt="Burger"
                 class="object-cover w-48 h-48 rounded-md" style="aspect-ratio: 200 / 200; object-fit: cover;" />
