@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Product as ProductInterface } from '../../interfaces/product.interface';
 import { CartService } from '../../composables/cart.service';
 import { ProductsService } from '../../graphql/products.service';
 import { AlanService } from '../../composables/alan.service';
+import { ViewportScroller } from '@angular/common';
 
 @Component({
   selector: 'app-products',
@@ -19,7 +20,12 @@ export class ProductsComponent {
   sides: ProductInterface[] = [];
   drinks: ProductInterface[] = [];
 
-  constructor(private cartService: CartService, private productsService: ProductsService, private alanService: AlanService) {}
+  constructor(
+    private cartService: CartService,
+    private productsService: ProductsService,
+    private alanService: AlanService,
+    private scroller: ViewportScroller
+    ) { }
 
   async ngOnInit(): Promise<void> {
     // Get the products from the GraphQL API
@@ -33,6 +39,18 @@ export class ProductsComponent {
         console.log('Adding product:', commandData.product);
         console.log('Quantity:', commandData.quantity);
         this.addToCart(commandData.product, commandData.quantity);
+      }
+      if (commandData.command === 'scrollToSection') {
+        console.log('Scrolling to section:', commandData.section);
+        if (commandData.section === 'burgers') {
+          this.scroller.scrollToAnchor("burgers");
+        }
+        if (commandData.section === 'sides') {
+          this.scroller.scrollToAnchor("sides");
+        }
+        if (commandData.section === 'drinks') {
+          this.scroller.scrollToAnchor("drinks");
+        }
       }
     });
   }
