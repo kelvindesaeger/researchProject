@@ -33,4 +33,8 @@ export class AlanService {
   public getCommandObservable() {
     return this.commandSubject.asObservable();
   }
+
+  public playText(text: string) {
+    this.alanBtnInstance.playText(text);
+  }
 }

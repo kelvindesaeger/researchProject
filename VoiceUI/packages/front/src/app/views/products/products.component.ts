@@ -27,7 +27,7 @@ export class ProductsComponent {
     private alanService: AlanService,
     private scroller: ViewportScroller,
     private router: Router
-    ) { }
+  ) { }
 
   async ngOnInit(): Promise<void> {
     // Get the products from the GraphQL API
@@ -53,6 +53,10 @@ export class ProductsComponent {
         if (commandData.section === 'drinks') {
           this.scroller.scrollToAnchor("drinks");
         }
+      }
+      if (commandData.command === 'makeCustomBurger') {
+        console.log('Routing to custom burger page');
+        this.makeCustomBurger();
       }
     });
   }
