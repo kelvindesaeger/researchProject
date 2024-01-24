@@ -91,5 +91,10 @@
             Cocktail
         </label>
     </form>
-    <button (click)="addBurgerToCart()">Add burger</button>
+    <div class="flex justify-center">
+        <button class="h-10 px-4 mt-4 font-medium text-white bg-green-600 rounded-md hover:bg-green-700"
+            (click)="addBurgerToCart()">
+            Add to Cart €{{ 10 + (this.customBurger.toppings.length * 0.5) }}
+        </button>
+    </div>
 </section>

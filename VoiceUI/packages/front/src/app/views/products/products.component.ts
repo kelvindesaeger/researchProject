@@ -44,7 +44,6 @@ export class ProductsComponent {
         console.log('Adding product:', commandData.product);
         console.log('Quantity:', commandData.quantity);
         this.addToCart(commandData.product, commandData.quantity);
-        this.toastr.success('Added ' + commandData.product.name + ' to cart', 'Success!');
       }
       if (commandData.command === 'scrollToSection') {
         console.log('Scrolling to section:', commandData.section);
@@ -83,6 +82,7 @@ export class ProductsComponent {
     for (let i = 0; i < quantity; i++) {
       console.log('Adding to cart:', product.name);
       this.cartService.addToCart(product);
+      this.toastr.success('Added ' + product.name + ' to cart', 'Success!');
     }
   }
 
