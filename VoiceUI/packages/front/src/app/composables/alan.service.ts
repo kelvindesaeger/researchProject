@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import alanBtn from "@alan-ai/alan-sdk-web";
 import { Subject } from 'rxjs';
+import { environment } from '../../../environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class AlanService {
 
   constructor() {
     this.alanBtnInstance = alanBtn({
-      key: '', 
+      key: environment.alanKey, 
       onCommand: (commandData) => {
         this.handleCommand(commandData);
       },
@@ -32,5 +33,9 @@ export class AlanService {
 
   public getCommandObservable() {
     return this.commandSubject.asObservable();
+  }
+
+  public playText(text: string) {
+    this.alanBtnInstance.playText(text);
   }
 }
