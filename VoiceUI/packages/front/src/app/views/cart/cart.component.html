@@ -1,15 +1,33 @@
-<div>
-    <h2>Your Shopping Cart</h2>
+<div class="h-full flex flex-col justify-between p-4 xl:p-6">
+    <h1 class="font-bold text-xl">Your Shopping Cart</h1>
     <ul>
-        <li *ngFor="let item of cart" class="flex items-center">
+        <li *ngFor="let item of cart" class="flex items-center pt-4">
             <img src="../../../assets/products/{{item.img}}" alt="" width="200" height="200" alt="Burger"
                 class="object-cover w-24 h-24 rounded-md" style="aspect-ratio: 100 / 100; object-fit: cover;">
-            {{ item.name }} - ${{ item.price }}
+            <div class="w-full flex flex-row justify-between pl-4">
+                <div>
+                    <h3 class="mt-4 text-xl font-medium text-gray-800">{{ item.name }}</h3>
+                    <p class="mt-2 text-gray-600">
+                        {{ item.description }}
+                    </p>
+                </div>
+                <h3 class="mt-4 text-xl font-medium text-gray-800">€{{ item.price }}</h3>
+            </div>
         </li>
     </ul>
-    <!-- <p>Total: ${{ getTotal() }}</p> -->
-
-    <button (click)="clearCart()" class="bg-red-500 rounded-sm w-15 h-7">
-        Delete
-    </button>
+    <div>
+        <div class="pt-4">
+            <p class="font-bold text-lg">Total: </p>
+            <!-- <p class="font-bold text-lg">${{ getTotal() }}</p> -->
+        </div>
+        <div class="pt-4 flex justify-between">
+            <button (click)="clearCart()"
+                class="h-10 px-4 font-medium text-white bg-red-500 hover:bg-red-700 rounded-sm w-15">
+                Clear
+            </button>
+            <button class="h-10 px-4 font-medium text-white bg-green-500 hover:bg-green-700 rounded-sm w-15">
+                Checkout
+            </button>
+        </div>
+    </div>
 </div>

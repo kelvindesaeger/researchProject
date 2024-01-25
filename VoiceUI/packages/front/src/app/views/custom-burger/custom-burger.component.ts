@@ -42,9 +42,19 @@ export class CustomBurgerComponent {
     sause: null,
   };
 
-  availableToppings: string[] = [
-    'Lettuce', 'Tomato', 'Onion', 'Pickles', 'Cheese',
-    'Bacon', 'Mushrooms', 'Jalapenos', 'Avocado', 'Fried Egg'
+  isSauceMessage: boolean = false;
+
+  availableToppings = [
+    { name: 'Lettuce', img: 'lettuce.jpg' },
+    { name: 'Tomato', img: 'tomato.jpg' },
+    { name: 'Onion', img: 'onion.jpg' },
+    { name: 'Pickles', img: 'pickles.jpg' },
+    { name: 'Cheese', img: 'cheese.jpg' },
+    { name: 'Bacon', img: 'bacon.jpg' },
+    { name: 'Mushrooms', img: 'mushrooms.jpg' },
+    { name: 'Jalapenos', img: 'jalapenos.png' },
+    { name: 'Avocado', img: 'avocado.jpg' },
+    { name: 'Fried Egg', img: 'fried-egg.jpg' },
   ];
 
   async ngOnInit(): Promise<void> {
@@ -77,9 +87,10 @@ export class CustomBurgerComponent {
       }
       if (commandData.command === 'addTopping') {
         if (this.customBurger.protein) {
-          if (this.customBurger.toppings.includes(commandData.topping)) {
+          console.log('Adding topping:', commandData.topping);
+          if (this.customBurger.toppings.includes(commandData.topping.charAt(0).toUpperCase() + commandData.topping.slice(1))) {
             this.playVoiceCommand('Removing ' + commandData.topping + '.');
-            const index = this.customBurger.toppings.indexOf(commandData.topping);
+            const index = this.customBurger.toppings.indexOf(commandData.topping.charAt(0).toUpperCase() + commandData.topping.slice(1));
             if (index !== -1) {
               this.customBurger.toppings.splice(index, 1);
             }
@@ -88,7 +99,10 @@ export class CustomBurgerComponent {
             this.playVoiceCommand('Adding ' + commandData.topping + '.');
             this.customBurger.toppings.push(commandData.topping.charAt(0).toUpperCase() + commandData.topping.slice(1));
             this.scroller.scrollToAnchor("sauce");
-            this.playVoiceCommand('What sauce would you like? We have BBQ, Mayonnaise, Cocktail');
+            if (this.isSauceMessage == false) {
+              this.playVoiceCommand('What sauce would you like? We have BBQ, Mayonnaise, Cocktail');
+              this.isSauceMessage = true;
+            }
           }
           console.log('toppings:', this.customBurger.toppings);
         }
