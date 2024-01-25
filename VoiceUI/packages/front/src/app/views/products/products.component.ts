@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, inject } from '@angular/core';
 import { NgFor } from '@angular/common';
 import { Product as ProductInterface } from '../../interfaces/product.interface';
 import { CartService } from '../../composables/cart.service';
@@ -6,6 +6,7 @@ import { ProductsService } from '../../graphql/products.service';
 import { AlanService } from '../../composables/alan.service';
 import { ViewportScroller } from '@angular/common';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-products',
@@ -20,6 +21,8 @@ export class ProductsComponent {
   burgers: ProductInterface[] = [];
   sides: ProductInterface[] = [];
   drinks: ProductInterface[] = [];
+
+  private toastr = inject(ToastrService);
 
   constructor(
     private cartService: CartService,
@@ -79,6 +82,7 @@ export class ProductsComponent {
     for (let i = 0; i < quantity; i++) {
       console.log('Adding to cart:', product.name);
       this.cartService.addToCart(product);
+      this.toastr.success('Added ' + product.name + ' to cart', 'Success!');
     }
   }
 
