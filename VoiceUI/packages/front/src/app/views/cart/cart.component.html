@@ -16,11 +16,12 @@
         </li>
     </ul>
     <div>
-        <div class="pt-4">
+        <div class="flex justify-between pt-4">
             <p class="font-bold text-lg">Total: </p>
-            <!-- <p class="font-bold text-lg">${{ getTotal() }}</p> -->
+            <p class="font-bold text-lg">${{ total }}</p>
         </div>
-        <div class="pt-4 flex justify-between">
+
+        <div class="flex justify-between pt-4">
             <button (click)="clearCart()"
                 class="h-10 px-4 font-medium text-white bg-red-500 hover:bg-red-700 rounded-sm w-15">
                 Clear
