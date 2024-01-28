@@ -101,6 +101,7 @@ export class CustomBurgerComponent {
             this.scroller.scrollToAnchor("sauce");
             if (this.isSauceMessage == false) {
               this.playVoiceCommand('What sauce would you like? We have BBQ, Mayonnaise, Cocktail');
+              this.playVoiceCommand('Or you can add more toppings if you like.');
               this.isSauceMessage = true;
             }
           }
