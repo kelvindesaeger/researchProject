@@ -19,6 +19,11 @@ export class ProductsResolver {
     return this.productsService.create(createProductInput);
   }
 
+  @Mutation(() => [Product])
+  createManyProducts() {
+    return this.productsService.createMany();
+  }
+
   @Query(() => [Product], { name: 'products' })
   findAll() {
     return this.productsService.findAll();

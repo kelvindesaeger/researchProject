@@ -31,6 +31,10 @@ export class AlanService {
     this.commandSubject.next(commandData);
   }
 
+  public activate() {
+    this.alanBtnInstance.activate();
+  }
+
   public getCommandObservable() {
     return this.commandSubject.asObservable();
   }

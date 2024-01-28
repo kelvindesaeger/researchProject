@@ -13,6 +13,11 @@ export class ProductTypesResolver {
     return this.productTypesService.create(createProductTypeInput);
   }
 
+  @Mutation(() => [ProductType])
+  createManyProductTypes() {
+    return this.productTypesService.createMany();
+  }
+
   @Query(() => [ProductType], { name: 'productTypes' })
   findAll() {
     return this.productTypesService.findAll();

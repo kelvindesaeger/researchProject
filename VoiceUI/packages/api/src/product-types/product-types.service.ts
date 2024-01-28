@@ -23,6 +23,40 @@ export class ProductTypesService {
     return this.productTypeRepository.save(newProductType);
   }
 
+  createMany() {
+    // if there are product types delete them all
+    this.productTypeRepository.clear();
+
+    const productTypes = [
+      {
+        name: "Burger",
+        description: "The best burgers"
+      },
+      {
+        name: "Side",
+        description: "The best sides"
+      },
+      {
+        name: "Drink",
+        description: "The best drinks"
+      }
+    ];
+
+    const newProductTypes: ProductType[] = [];
+    
+    productTypes.forEach(async productType => {
+      const newProductType = new ProductType();
+
+      newProductType.name = productType.name;
+      newProductType.description = productType.description;
+
+      const newpt = await this.productTypeRepository.save(newProductType);
+      newProductTypes.push(newpt);
+    });
+
+    return newProductTypes;
+  }
+
   findAll() {
     return this.productTypeRepository.find();
   }

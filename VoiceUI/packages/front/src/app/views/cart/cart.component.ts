@@ -21,6 +21,14 @@ export class CartComponent implements OnInit {
     // fill cart
     this.cart = this.cartService.getCart();
 
+    // calculate total
+    if (this.cart.length > 0) {
+      this.cart.forEach(product => {
+        if (product.price)
+          this.total += product.price;
+      });
+    }
+
     // listen to alan commands
     this.alanService.getCommandObservable().subscribe(commandData => {
       if (commandData.command === 'clearCart') {
@@ -29,6 +37,16 @@ export class CartComponent implements OnInit {
       if (commandData.command === 'removeFromCart') {
         console.log('commandData', commandData.product);
         this.removeFromCart(commandData.product);
+      }
+      if (commandData.command === 'checkout') {
+        if (this.cart.length > 0) {
+          const names = this.cart.map(product => product.name+', ');
+          this.alanService.playText('Your order has been placed. Your total is $' + this.total.toFixed(2) + '. You ordered ' + names);
+          this.clearCart();
+          this.total = 0;
+        } else {
+          this.alanService.playText('Your cart is empty. Please add items to your cart before checking out.');
+        }
       }
     });
   }

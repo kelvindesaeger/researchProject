@@ -2,3 +2,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body, html {
+  height: 100%;
+}
+
+.full-screen {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-cart, app-custom-burger, app-information {
+  flex: 1;
+}
+
+.bg-image {
+    background-image: url('./assets/bg.jpg');
+}
